@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Quiz och chat med Socket.IO</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
     <link
@@ -13,7 +13,7 @@
 
       body
       {
-        padding-left: 10%;padding-right: 10%;
+        padding-left: 2%;padding-right: 2%;
       }
     </style>
 
@@ -27,45 +27,57 @@
     
 
 
-    <div class="container fade-in-text" style="background-color:floralwhite; max-width:81% !important; margin-left:auto !important; margin-right:auto !important;">
-      <div class="container-fluid">
+    <div class="container fade-in-text row" style="background-color:floralwhite;!important; margin-left:auto !important; margin-right:auto !important;">
+
         <div class="row">
-      <h2 class="h2">En quiz med chat</h2>
+      <h2 class="h2" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Quiz med chat</h2>
 
       <p ><h3  id="skrivnamn" class="h3">Skriv ditt namn för att starta chat och quiz</h3>
         <div id="userContainer"></div>
         <div id="user">
           <form id="formUser">
             <div class="form-group">
-            <input type="text" id="inputUser" /><button>Skriv in ditt namn</button>
+            <input type="text" style="max-width:50%; display:flex"  class="form-control" id="inputUser" /><button class="btn btn-primary">Skriv in ditt namn</button>
           </div>
           </form>
         </div>
-        <div id="message" style="background-color:aliceblue">
+        <div id="message" >
+
+          <div class="row">
+            <div class="col-12" style="background-color:white; border:black 1px solid; padding:10px">
+
           <form id="formMessage" class="fade-in-text">
-            <input type="text" id="inputMessage" /><button>
+            <input type="text"   class="form-control"  id="inputMessage"  />
+
+            <button  class="btn btn-primary">
               Skicka ett meddelande
             </button>
           </form>
         </p>
-    
+      </div>
 
 
-        <h3 class="h3" id="quiz_question">Fråga här</h3>
-
+          <div class="col-lg-12" style="background-color:white; border:black 1px solid; padding:10px; margin-top:20px">
+        <h4 class="h4" id="quiz_question">Fråga här</h4>
         <form id="quiz_answer">
+          <div class="form-group">
           <input
             type="text"
             placeholder="Mitt svar"
             id="input_quiz_answer"
-            class="fade-in-text"
+            class="fade-in-text form-control" 
           /><button class="btn btn-primary">Svara på frågan</button>
+        </div>
         </form>
-
+      </div></div>
 
 
       </div>    </div>    </div>
 
+      <div class="container fade-in-text">
+        <div class="container-fluid">
+          <div class="row" >
+          </div>    </div>    </div>
     <div class="container fade-in-text">
       <div class="container-fluid">
         <div class="row">

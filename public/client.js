@@ -28,10 +28,13 @@ ch.addEventListener("click", function () {
       for (i in data.haemtat_objekt_fr_db_ch) {
         //qsvar.push(i);
         cm.push(
-          data.haemtat_objekt_fr_db_ch[i].user +
-            ": " +
+          "<b>" +
+            data.haemtat_objekt_fr_db_ch[i].user +
+            ":</b> " +
             data.haemtat_objekt_fr_db_ch[i].message +
-            data.haemtat_objekt_fr_db_ch[i].date
+            " (" +
+            data.haemtat_objekt_fr_db_ch[i].date +
+            ")"
         );
       }
 
@@ -107,10 +110,11 @@ document.querySelector("#quiz_question").innerHTML =
 formUser.addEventListener("submit", function (e) {
   e.preventDefault();
   myUser = inputUser.value;
-  userContianer.innerHTML = "<h2>Välkommen " + myUser + "</h2>";
+  userContianer.innerHTML =
+    "<h3 class='h3'>Välkommen " + myUser + ", här kan du chatta</h3>";
   document.getElementById("user").style.display = "none";
   document.getElementById("skrivnamn").style.display = "none";
-  document.getElementById("message").style.display = "block";
+  document.getElementById("message").style.display = "inline";
 });
 
 //########################################
@@ -118,7 +122,7 @@ formUser.addEventListener("submit", function (e) {
 formMessage.addEventListener("submit", function (e) {
   e.preventDefault();
   if (inputMessage.value) {
-    socket.emit("chatMessage", { user: myUser, message: inputMessage.value });
+    socket.emit("medd", { user: myUser, message: inputMessage.value });
     inputMessage.value = "";
   }
 });

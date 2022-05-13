@@ -65,7 +65,7 @@ form{
 
 .fade-in-text {
   display: inline-block;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 
   color: black;
   animation: fadeIn linear 0.3s;

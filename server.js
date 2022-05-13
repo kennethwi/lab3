@@ -24,6 +24,16 @@ mongo.connect(
 
     chatmeddelanden_db = db.collection("chatmeddelanden_db");
     fraagesvar_db = db.collection("fraagesvar_db");
+
+    // TÖM HELT VID BEHOV
+    //chatmeddelanden_db.deleteMany({});
+    //fraagesvar_db.deleteMany({});
+
+    // fraagesvar_db.find().toArray((err, items) => {
+    //   if (err) throw err;
+    //   console.table(fraagesvar_db);
+    //   res.json({ fraagesvar_db: items });
+    // });
   }
 );
 
@@ -52,7 +62,7 @@ app.get("/fraagesvar_db", (req, res) => {
 io.on("connection", (socket) => {
   console.log(`A client with id ${socket.id} connected to the chat!`);
 
-  socket.on("chatMessage", (msg) => {
+  socket.on("medd", (msg) => {
     console.log("Meddelanden: " + msg.message);
 
     var tid = ge_tid();
@@ -100,26 +110,32 @@ io.on("connection", (socket) => {
         msg.anvaendarens_svar.toLowerCase() in
       facit_obj
     ) {
-      console.log(msg.anvaendare + " svarade rätt: " + msg.anvaendarens_svar);
+      console.log(
+        " &nbsp;" +
+          msg.anvaendare +
+          " svarade rätt: " +
+          msg.anvaendarens_svar +
+          " &nbsp;"
+      );
 
       io.emit(
         "new_quiz_feedback",
-        "<span class='korrekt_svar'>" +
+        "<span class='korrekt_svar'> &nbsp;" +
           msg.anvaendare +
           " svarade rätt på fråga " +
           msg.fraageindex +
-          "</span>"
+          "&nbsp; </span>"
       );
     } else {
       console.log(msg.anvaendare + " svarade fel: " + msg.anvaendarens_svar);
 
       io.emit(
         "new_quiz_feedback",
-        "<span class='fel_svar'>" +
+        "<span class='fel_svar'>&nbsp; " +
           msg.anvaendare +
           " svarade fel på fråga " +
           msg.fraageindex +
-          "</span>"
+          " &nbsp;</span>"
       );
     }
 
@@ -219,14 +235,6 @@ app.post("/mongodb_post_qa", (req, res) => {
 app.post("/mongodb_post_messages", (req, res) => {
   // VAD SKA SPARAS?
   // Alla chat-meddelanden
-
-  // let i = req.body.id
-  // let ft = req.body.filmtitel
-  // let rr = req.body.recensionsrubrik
-  // let rf = req.body.recensionsfoerfattare
-  // let rd = req.body.recensionsdatum
-  // let rtxt = req.body.recensionstext
-  // let b = req.body.recensionsbetyg
 
   chatmeddelanden_db.insertOne(
     {
