@@ -177,28 +177,17 @@ const facit_obj = {
 };
 
 function ge_tid() {
-  let t = new Date();
+  //https://www.delftstack.com/howto/node.js/formatting-dates-in-nodejs/#format-a-date-object-using-the-yyyy-mm-dd-hhmmss-function
+  const d_t = new Date();
 
-  var str =
-    t.getDate() +
-    " " +
-    t.getMonth() +
-    " " +
-    t.getFullYear() +
-    " " +
-    t.getHours() +
-    ":" +
-    t.getMinutes() +
-    ":" +
-    t.getSeconds();
+  let year = d_t.getFullYear();
+  let month = ("0" + (d_t.getMonth() + 1)).slice(-2);
+  let day = ("0" + d_t.getDate()).slice(-2);
+  let hour = d_t.getHours();
+  let minute = d_t.getMinutes();
+  let seconds = d_t.getSeconds();
 
-  // let date =
-  //   today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-  // let time =
-  //   today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  // let dateTime = date + " " + time;
-  //let dateTime = t;
-  return "<small>" + t.toDateString() + "</small>";
+  return d_t;
 }
 
 // ################################
@@ -206,14 +195,6 @@ function ge_tid() {
 app.post("/mongodb_post_qa", (req, res) => {
   // VAD SKA SPARAS?
   // Så mycket som möjligt för varje svar
-
-  // let i = req.body.id
-  // let ft = req.body.filmtitel
-  // let rr = req.body.recensionsrubrik
-  // let rf = req.body.recensionsfoerfattare
-  // let rd = req.body.recensionsdatum
-  // let rtxt = req.body.recensionstext
-  // let b = req.body.recensionsbetyg
 
   fraagesvar_db.insertOne(
     {

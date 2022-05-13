@@ -30,7 +30,8 @@
     <div class="container fade-in-text" style="background-color:floralwhite; max-width:81% !important; margin-left:auto !important; margin-right:auto !important;">
       <div class="container-fluid">
         <div class="row">
-      <h1 class="h1">  En quiz med chat</h1>
+      <h2 class="h2">En quiz med chat</h2>
+
       <p ><h3  id="skrivnamn" class="h3">Skriv ditt namn för att starta chat och quiz</h3>
         <div id="userContainer"></div>
         <div id="user">
@@ -50,7 +51,7 @@
     
 
 
-        <h1 id="quiz_question">Fråga här</h1>
+        <h3 class="h3" id="quiz_question">Fråga här</h3>
 
         <form id="quiz_answer">
           <input
@@ -58,7 +59,7 @@
             placeholder="Mitt svar"
             id="input_quiz_answer"
             class="fade-in-text"
-          /><button>Skicka svar</button>
+          /><button class="btn btn-primary">Svara på frågan</button>
         </form>
 
 
@@ -68,28 +69,44 @@
     <div class="container fade-in-text">
       <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6" style="background-color:antiquewhite">
+            <div class="col-lg-6" style="background-color:beige">
 
               <h2>Quiz-feedback</h2>
               <ul id="quiz_feedback" class=" fade-in-text"></ul>
-
-              <h2>Visa sparad quiz-historik (se precis vad deltagarna svarat)</h2>
-              <button id="ge_quizhistorik" class=" fade-in-text">Hämta</button>
-          
-              <div id="qh"  class=" fade-in-text"></div>
 
             </div>
             <div class="col-lg-6" style="background-color:beige">
               <h2>Chat-meddelanden</h2>
               <ul id="messages"  class=" fade-in-text"></ul>
-              <h2>Visa sparad chat-historik</h2>
-              <HR></HR>
-                  <button id="ge_chathistorik"  class=" fade-in-text">Hämta</button>
-            <br />
-                  <div id="ch"  class=" fade-in-text"></div>
+
             </div>
         </div>
-    </div></div>
+        <div class="row">
+          <div class="col-lg-6" style="background-color:antiquewhite">
+
+            <HR></HR>
+            <h2>Visa sparad quiz-historik</h2>
+            <button id="ge_quizhistorik" class=" fade-in-text btn btn-primary">Hämta</button>
+        
+            <div id="qh"  class=" fade-in-text"></div>
+
+          </div>
+
+
+          <div class="col-lg-6" style="background-color:antiquewhite">
+
+          <HR></HR>
+          <h2>Visa sparad chat-historik</h2>
+
+              <button id="ge_chathistorik"  class=" fade-in-text btn btn-primary">Hämta</button>
+        <br />
+              <div id="ch"  class=" fade-in-text"></div>
+
+
+            </div></div>
+      </div>
+    </div>
+  </div> </div> </div>
 
 
 
