@@ -212,23 +212,23 @@ app.post("/mongodb_post_qa", (req, res) => {
   // VAD SKA SPARAS?
   // Så mycket som möjligt för varje svar
 
-//   fraagesvar_db.insertOne(
-//     {
-//       id: i,
-//       filmtitel: ft,
-//       foerfattare: rf,
-//       datum: rd,
-//       rubrik: rr,
-//       recensionstext: rtxt,
-//       betyg: b,
-//     },
-//     (err, result) => {
-//       if (err) throw err;
-//       console.log(result);
-//       res.json({ ok: true });
-//     }
-//   );
-// });
+  fraagesvar_db.insertOne(
+    {
+      id: i,
+      filmtitel: ft,
+      foerfattare: rf,
+      datum: rd,
+      rubrik: rr,
+      recensionstext: rtxt,
+      betyg: b,
+    },
+    (err, result) => {
+      if (err) throw err;
+      console.log(result);
+      res.json({ ok: true });
+    }
+  );
+});
 
 // ################################
 // POST TILL MONGODB
